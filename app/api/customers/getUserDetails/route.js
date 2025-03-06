@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prisma from "@repo/db/client";
+import prisma from "../../../../db/src/index";
 
 //recieve the user id and then fetch the user details
 export async function GET(req) {

@@ -56,7 +56,7 @@ export default function AddProduct() {
     }
 
     try {
-      await axios.post("/api/product/addNewProduct", {
+      await axios.post(`${process.env.BACKEND_URL}/api/product/addNewProduct`, {
         name: product.name,
         description: product.description,
         price: Number(product.price),

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prisma from "@repo/db/client"; // Ensure correct import path
+import prisma from "../../../../db/src/index";
 
 export async function POST(req) {
     try {

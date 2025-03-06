@@ -1,7 +1,7 @@
 // route to add new product
 
 import { NextResponse } from "next/server";
-import prisma from "@repo/db/client";
+import prisma from "../../../../db/src/index";
 
 export async function POST(req) {
     try{

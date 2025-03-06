@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { 
-  BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, 
+  XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, 
   PieChart, Pie, Cell, LineChart, Line 
 } from "recharts";
 import axios from "axios";
@@ -15,8 +15,8 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ordersResponse = await axios.get("/api/sales/getAllOrders");
-        const usersResponse = await axios.get("/api/customers/getAllUsers");
+        const ordersResponse = await axios.get(`${process.env.BACKEND_URL}/api/sales/getAllOrders`);
+        const usersResponse = await axios.get(`${process.env.BACKEND_URL}/api/customers/getAllUsers`);
         setOrders(ordersResponse.data.orders || []);
         setUsers(usersResponse.data.users || []);
       } catch (error) {

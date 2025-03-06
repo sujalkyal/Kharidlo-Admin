@@ -18,7 +18,7 @@ export default function ProductPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("/api/product/getAllProducts");
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/product/getAllProducts`);
         setProducts(Array.isArray(response.data.products) ? response.data.products : []);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -27,7 +27,7 @@ export default function ProductPage() {
 
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("/api/sales/getAllOrders");
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/sales/getAllOrders`);
         setOrders(Array.isArray(response.data.orders) ? response.data.orders : []);
       } catch (error) {
         console.error("Error fetching orders:", error);
@@ -87,7 +87,7 @@ export default function ProductPage() {
     const { id, name, price, stock } = editProduct;
     
     try {
-      await axios.post("/api/product/editProduct", {
+      await axios.post(`${process.env.BACKEND_URL}/api/product/editProduct`, {
         productId: id,
         name: name || undefined,
         price: price || undefined,
@@ -109,7 +109,7 @@ export default function ProductPage() {
     event.preventDefault();
     if (!newImageUrl || !addImageProduct) return;
     try {
-      await axios.post("/api/product/addNewImage", {
+      await axios.post(`${process.env.BACKEND_URL}/api/product/addNewImage`, {
         productId: addImageProduct.id,
         imageUrl: newImageUrl,
       });
