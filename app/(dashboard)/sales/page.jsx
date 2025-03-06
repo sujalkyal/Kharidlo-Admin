@@ -13,7 +13,7 @@ const SalesPage = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const res = await axios.get(`${process.env.BACKEND_URL}/api/sales/getAllOrders`);
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sales/getAllOrders`);
                 setOrders(res.data.orders || []);
             } catch (error) {
                 console.error("Failed to fetch orders:", error);
@@ -40,7 +40,7 @@ const SalesPage = () => {
     const completeOrder = async () => {
         if (!selectedOrder) return;
         try {
-            await axios.put(`${process.env.BACKEND_URL}/api/sales/completeOrder`, {
+            await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sales/completeOrder`, {
                 orderId: selectedOrder.id,
                 status: "completed"
             });

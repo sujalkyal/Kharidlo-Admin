@@ -11,12 +11,12 @@ const UserTable = () => {
     const fetchUsersAndOrders = async () => {
       try {
         // Fetch users
-        const userRes = await fetch(`${process.env.BACKEND_URL}/api/customers/getAllUsers`);
+        const userRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/customers/getAllUsers`);
         const userData = await userRes.json();
         const fetchedUsers = userData.users || [];
 
         // Fetch orders
-        const orderRes = await fetch(`${process.env.BACKEND_URL}/api/sales/getAllOrders`);
+        const orderRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sales/getAllOrders`);
         const orderData = await orderRes.json();
         const fetchedOrders = orderData.orders || [];
 

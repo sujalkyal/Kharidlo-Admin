@@ -15,8 +15,8 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ordersResponse = await axios.get(`${process.env.BACKEND_URL}/api/sales/getAllOrders`);
-        const usersResponse = await axios.get(`${process.env.BACKEND_URL}/api/customers/getAllUsers`);
+        const ordersResponse = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sales/getAllOrders`);
+        const usersResponse = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/customers/getAllUsers`);
         setOrders(ordersResponse.data.orders || []);
         setUsers(usersResponse.data.users || []);
       } catch (error) {
