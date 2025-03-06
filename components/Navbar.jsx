@@ -3,13 +3,13 @@
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useEffect } from "react";
-import { signOut, useSession, getSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 
 const Navbar = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const pathname = usePathname(); // Fix: Define pathname
+  const pathname = usePathname();
 
   useEffect(() => {
     if (status === "unauthenticated") {
